@@ -1,5 +1,82 @@
 first we install node.js
 
-then made a folder name
+fs.writeFile("./copy/hey.txt")  --> yha pe ./ kaa mtlb hota hai same flder me mtlb ki jis folder me usi folder me copy folder exist kr rha hai
+
+then made a folder and use command (npm init) and then made a js file
+
+1. File Systems
 
 [javascript]
+    const fs = require("node:fs");
+    // ^
+    // ^ here we fetch the node API without promises
+
+    // now we are going to learn about many File Systems
+
+    // 1.ye kya krta hai ki new file initialize krta hai..jaise yha pe hey.txt file maine initialize kiya hia and uske andar content dala hai "Welcome to my Website" krke and 3rd me ek error se deal krne ke liye ek function bnana hota hai
+    fs.writeFile("hey.txt", "Welcome to my Website", function (err) {
+        if (err) console.error(err.message);
+        else console.log("File Created");
+    });
+
+    //2. ye already jo file ban chuka hai use edit krke use kuch extra content dalta hai jaise ki maine apne poorane file me " \nSuccessfully Appended" add kiya hai and same error se deal krne ke liye ek function
+    fs.appendFile("hey.txt", " \nSuccessfully Appended", function (err) {
+        if (err) console.error("Error Detected! Try again later 2");
+        else console.log("File Content Changed");
+    });
+
+    // 3. isme hum pehle se bane hue file ka name edit krte hai and  error handaling function ke sath
+    fs.rename("hey.txt" , "hello.txt" , function(err){
+        if (err) console.error(err);
+        else console.log("File Renamed!");
+    }) 
+
+    // 4. isme hum ek pehle se bane hue file ka copy file kahi or create krte ahi and error handeling function ke sath
+    fs.copyFile("hey.txt" , "./copy/hi.txt" , function(err){
+        if (err) console.error("Error Detected! Try again later 4");
+        else console.log("File Copied!");
+    })
+
+    // 5. isme hum kisi file ko remove kr skte hai
+    fs.unlink("hey.txt" ,function (err) {
+        if (err) console.error("Error Detected! Try again later 2");
+        else console.log("File Removed!");
+    })
+
+    //6. we can delete any empty directory using this
+    fs.rmdir("./copy",function(err){
+        if (err) console.error(err.message);
+        else console.log("No Error Detected");
+    })
+
+    // but agr mujhe filled directory bhi delete krni hai to i can use ..in past (fs.rm was used as rmdir)
+    fs.rm("./copy", {recursive:true} ,function(err){
+        if (err) console.error(err.message);
+        else console.log("No Error Detected");
+    })
+
+
+[end]
+
+2. HTTP and HTTPS
+
+internet pe kuh bhi krne ke liye rules bnaye gye hai... unke dwara jinhone internet banaya hai..ab un rules ko follow krna jaruri hai..or ye rules follow ho isliye ye rules apke operating system ke software (like windows and macOS) me pre-installed hota hai
+
+a. HTTP - protocol  --> yhi protocol hai ya rule hai jisko follow kre bina aap internet pe naa hi kuch bhej skte bo na hi kuch manga skte ho
+
+
+how can i use HTTP
+
+we require
+
+[javascript]
+const http = require('http');
+
+const server = http.createServer(function(req,res){
+    res.end("hello world");
+})
+
+server.listen(3000);
+// will discuss this in lecture number 3
+
+[end]
