@@ -1,0 +1,34 @@
+1. NPM understanding
+// 
+
+NPM - node package manager --> (pehle ka full form)
+
+!Difference between Module and Package
+node js core me jo installed aata hai wo kehalata hai module and npm se download krte hai wo hota hai package
+
+
+2. installing and unstalling anything basics and advanced
+
+install krne ke liye -> npm i packageKaName
+
+example --->  npm i one-liner-joke
+
+unstall krne ke liye --> npm uninstall packageKaName
+
+example ---> npm uninstall one-liner-joke
+
+
+3. understanding node_modules
+
+node_modules me basically humare download kiye hue packages rhte hai and humara download kia hua package jis package pe depend hai wo package bhi automatically install ho jata hai....like if i install express to usse related and djis jis packages pe express depend kr rha hoga saare install ho jayenge
+
+4. Dependencies
+
+and jispe ye depend kr rha hai e.g. express.... usi ko !dependencies! kehte hai
+
+5. DevDependencies
+
+and aisi koi chiz jo sirf kaam krte time hi usefull hai and baad me uska koi role nhi reh jata(upload hone ke baad)..hum aisi chizo ko devDependecies nhi bnate jo humare app ya website ke deploy hone ke baad bhi use krna hai
+
+6. Scripts- understanding default Scripts PATH and custom Scripts
+
